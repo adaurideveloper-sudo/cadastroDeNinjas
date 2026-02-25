@@ -1,0 +1,17 @@
+[33mcommit edb6630b8111f2830482db732c6d5eb02d02ca0a[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mAula2[m[33m, [m[1;31morigin/Aula2[m[33m)[m
+Author: adaurideveloper-sudo <adauri.developer@gmail.com>
+Date:   Wed Feb 25 12:15:47 2026 -0300
+
+    Criar uma entidade no banco de dados a partir do NinjaModel
+
+[33mcommit bb6268e062f54484b6cca46430afb719d2963d09[m[33m ([m[1;31morigin/main[m[33m, [m[1;31morigin/HEAD[m[33m, [m[1;32mmain[m[33m)[m
+Author: adaurideveloper-sudo <adauri.developer@gmail.com>
+Date:   Wed Feb 25 11:03:27 2026 -0300
+
+    criado a controller
+
+[33mcommit 527199e4f7747c770f1ad0d2b47546746ec11871[m
+Author: adauri.developer <adauri.developer@gmail.com>
+Date:   Tue Feb 24 23:00:05 2026 -0300
+
+    first commit
