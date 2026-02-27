@@ -1,4 +1,4 @@
-package dev.java.cadastroDeNinjas.Missoes;
+package dev.java.cadastroDeNinjas.missoes;
 
 
 import org.springframework.web.bind.annotation.GetMapping;
@@ -6,11 +6,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping
+@RequestMapping("/missoes")
 public class MissoesControler {
 
-    @GetMapping("/escolhaMissao")
-    public String escolhaMissao() {
+    @GetMapping("/listar")
+    public String listar() {
         return "Escolha sua missao nesta rota";
     }
 
