@@ -21,10 +21,19 @@ public class NinjaModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "id")
     private Long id;
+
+    @Column(name ="name")
     private String nome;
+
     @Column(unique = true)
     private String email;
+
+    @Column(name = "img_url")
+    private  String imagUrl;
+
+    @Column(name = "idade")
     private int idade;
 
     // @ManyToOne um ninja tem uma unica missao
