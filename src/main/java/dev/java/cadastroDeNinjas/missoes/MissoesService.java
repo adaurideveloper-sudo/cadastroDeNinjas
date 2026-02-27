@@ -1,4 +1,4 @@
-package dev.java.cadastroDeNinjas.Missoes;
+package dev.java.cadastroDeNinjas.missoes;
 
 public class MissoesService {
 

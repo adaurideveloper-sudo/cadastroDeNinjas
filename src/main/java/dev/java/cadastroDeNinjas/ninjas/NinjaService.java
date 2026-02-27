@@ -1,4 +1,4 @@
-package dev.java.cadastroDeNinjas.Ninjas;
+package dev.java.cadastroDeNinjas.ninjas;
 
 public class NinjaService {
 

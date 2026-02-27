@@ -1,15 +1,13 @@
-package dev.java.cadastroDeNinjas.Missoes;
+package dev.java.cadastroDeNinjas.missoes;
 
-import dev.java.cadastroDeNinjas.Ninjas.NinjaModel;
+import dev.java.cadastroDeNinjas.ninjas.NinjaModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.List;
 
 @Entity
-@Table (name = "tb_missoes")
+@Table(name = "missoes")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -17,14 +15,16 @@ public class MissoesModel {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name="id")
     private Long id;
 
-    private String nomeDaMissao;
-
+    @Column(name="dificuldade")
     private String dificuldade;
 
-    // Uma missao pode ter varios ninjas
-    @OneToMany(mappedBy = "missoes")
-    private List<NinjaModel> ninjas;
+    @Column(name="descricao")
+    private String descricao;
 
+    // Relacionamento One-to-Many: uma missão pode ter vários ninjas
+    @OneToMany(mappedBy = "missao", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<NinjaModel> ninjas;
 }

@@ -1,45 +1,35 @@
-package dev.java.cadastroDeNinjas.Ninjas;
+package dev.java.cadastroDeNinjas.ninjas;
 
-import dev.java.cadastroDeNinjas.Missoes.MissoesModel;
+import dev.java.cadastroDeNinjas.missoes.MissoesModel;
 import jakarta.persistence.*;
-import lombok.AllArgsConstructor;
-import lombok.Data;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
-import java.util.List;
-
-// Entity ele transforma  uma classe em uma entidade do DB
-// JPA - Java Persistence API
 @Entity
 @Table(name = "tb_cadastro")
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
-
 public class NinjaModel {
-
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id")
+    @Column(name="id")
     private Long id;
 
-    @Column(name ="name")
+    @Column(name="nome")
     private String nome;
 
     @Column(unique = true)
     private String email;
 
-    @Column(name = "img_url")
-    private  String imagUrl;
+    @Column(name="img_url")
+    private String imgUrl;
 
-    @Column(name = "idade")
+    @Column(name="idade")
     private int idade;
 
-    // @ManyToOne um ninja tem uma unica missao
+    // Relacionamento Many-to-One: muitos ninjas podem ter uma missão
     @ManyToOne
-    @JoinColumn(name = "missoes_id") // Foreing Key ou chave estrangeira
-    private List<MissoesModel> missoes;
-
+    @JoinColumn(name = "missao_id") // chave estrangeira
+    private MissoesModel missao;
 }
-
