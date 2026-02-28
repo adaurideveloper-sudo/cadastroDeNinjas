@@ -21,8 +21,8 @@ public class MissoesModel {
     @Column(name="dificuldade")
     private String dificuldade;
 
-    @Column(name="descricao")
-    private String descricao;
+    @Column(name="nome")
+    private String nome;
 
     // Relacionamento One-to-Many: uma missão pode ter vários ninjas
     @OneToMany(mappedBy = "missao", cascade = CascadeType.ALL, orphanRemoval = true)
