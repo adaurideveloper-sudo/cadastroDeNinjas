@@ -2,7 +2,6 @@ package dev.java.cadastroDeNinjas.ninjas;
 
 
 import org.springframework.stereotype.Service;
-
 import java.util.List;
 import java.util.Optional;
 
@@ -26,7 +25,12 @@ public class NinjaService{
         return ninjaPorId.orElse(null);
     }
 
-    //
+    // Criar um novo ninja
+    public NinjaModel criarNinja(NinjaModel ninja) {
+        return ninjaRepository.save(ninja);
+    }
+
+
 
 
 }
