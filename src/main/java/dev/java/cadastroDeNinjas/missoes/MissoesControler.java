@@ -6,6 +6,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -21,14 +22,16 @@ public class MissoesControler {
         this.missoesService = missoesService;
     }
 
+
     // Adicionar Missoes
-    public String criarMissoes() {
-        return "Missao criada com sucesso";
+    @PostMapping("/criar")
+    public MissoesModel criarMissoes(@RequestBody MissoesModel missoes) {
+        return missoesService.criarMissoes(missoes);
     }
 
     // Listar Missoes
     @GetMapping("/listar")
-    public List<MissoesModel> listarMissoes() {
+    public List<MissoesModel> listarMissoes(MissoesModel missoes) {
         return missoesService.listarMissoes();
     }
 
