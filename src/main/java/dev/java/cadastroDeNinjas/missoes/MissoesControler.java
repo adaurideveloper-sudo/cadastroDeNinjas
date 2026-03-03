@@ -16,7 +16,7 @@ import java.util.List;
 @RequestMapping("/missoes")
 public class MissoesControler {
 
-    private  MissoesService missoesService;
+    private MissoesService missoesService;
 
     public MissoesControler(MissoesService missoesService) {
         this.missoesService = missoesService;
@@ -48,9 +48,9 @@ public class MissoesControler {
     }
 
     // Deletar missao
-    @DeleteMapping
-    public String deletarMissoes(){
-        return "Missao deletada com sucesso";
+    @DeleteMapping("/deletar/{id}")
+    public void deletarMissoesPorId(@PathVariable Long id){
+        missoesService.deletarMissoesPorId(id);
     }
 
 
