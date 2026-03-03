@@ -1,7 +1,7 @@
 package dev.java.cadastroDeNinjas.missoes;
 
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestBody;
+
 
 import java.util.List;
 import java.util.Optional;
@@ -29,6 +29,11 @@ public class MissoesService {
     public MissoesModel listarMissoesPorId(Long id) {
         Optional<MissoesModel> missoesPorId = missoesRepository.findById(id);
         return missoesPorId.orElse(null);
+    }
+
+    //Deletar por id
+    public  void deletarMissoesPorId(Long id) {
+        missoesRepository.deleteById(id);
     }
 
 
