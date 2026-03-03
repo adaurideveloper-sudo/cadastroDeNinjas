@@ -1,6 +1,4 @@
 package dev.java.cadastroDeNinjas.ninjas;
-
-
 import org.springframework.stereotype.Service;
 import java.util.List;
 import java.util.Optional;
@@ -30,6 +28,10 @@ public class NinjaService{
         return ninjaRepository.save(ninja);
     }
 
+    //Deletar o Ninja
+    public void deletarNinjaPorid(Long id) {
+        ninjaRepository.deleteById(id);
+    }
 
 
 
