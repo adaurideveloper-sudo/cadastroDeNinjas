@@ -28,8 +28,12 @@ public class NinjaModel {
     @Column(name="idade")
     private int idade;
 
+    @Column(name = "rank")
+    private String rank;
+
     // Relacionamento Many-to-One: muitos ninjas podem ter uma missão
     @ManyToOne
     @JoinColumn(name = "missao_id") // chave estrangeira
     private MissoesModel missao;
+
 }
