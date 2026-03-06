@@ -10,10 +10,10 @@ public class NinjaMapper {
               ninjaModel.setId(ninjaDTO.getId());
               ninjaModel.setNome(ninjaDTO.getNome());
               ninjaModel.setEmail(ninjaDTO.getEmail());
-              ninjaModel.setImgUrl(ninjaDTO.getImgUrl());
+              ninjaModel.setImg_url(ninjaDTO.getImg_url());
               ninjaModel.setIdade(ninjaDTO.getIdade());
+              ninjaModel.setMissoes(ninjaDTO.getMissao());
               ninjaModel.setRank(ninjaDTO.getRank());
-              ninjaModel.setMissao(ninjaDTO.getMissao());
 
               return ninjaModel;
           }
@@ -23,10 +23,10 @@ public class NinjaMapper {
               ninjaDTO.setId(ninjaModel.getId());
               ninjaDTO.setNome(ninjaModel.getNome());
               ninjaDTO.setEmail(ninjaModel.getEmail());
-              ninjaDTO.setImgUrl(ninjaModel.getImgUrl());
+              ninjaDTO.setImg_url(ninjaModel.getImg_url());
               ninjaDTO.setIdade(ninjaModel.getIdade());
+              ninjaDTO.setMissao(ninjaModel.getMissoes());
               ninjaDTO.setRank(ninjaModel.getRank());
-              ninjaDTO.setMissao(ninjaModel.getMissao());
 
               return ninjaDTO;
 
