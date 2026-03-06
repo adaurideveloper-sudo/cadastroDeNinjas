@@ -8,12 +8,15 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RequestMapping("/ninjas")
 @RestController
 public class NinjaController {
 
-   private NinjaService ninjaService;
+   private final NinjaService ninjaService;
+
+
 
     public NinjaController(NinjaService ninjaService) {
         this.ninjaService = ninjaService;
@@ -32,7 +35,7 @@ public class NinjaController {
 
     // Procurar Ninja por ID (CREATE)
     @GetMapping("/listar")
-    public List<NinjaDTO> listarNinja() {
+    public List<NinjaDTO> listarNinjas() {
         return ninjaService.listarNinjas();
     }
 

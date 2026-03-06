@@ -37,5 +37,17 @@ public class MissoesService {
     }
 
 
+    public MissoesModel atualizarMissao(Long id, MissoesModel missao) {
+        Optional<MissoesModel> missaoExistente = missoesRepository.findById(id);
 
+        if (missaoExistente.isPresent()) {
+            MissoesModel missaoNoBanco = missaoExistente.get();
+
+            missaoNoBanco.setNome(missao.getNome()); // mudei aqui
+            missaoNoBanco.setDificuldade(missao.getDificuldade()); // e aqui
+
+            return missoesRepository.save(missaoNoBanco);
+        }
+        return null;
+    }
 }

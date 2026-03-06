@@ -26,7 +26,7 @@ public class MissoesModel {
     private String nome;
 
     // Relacionamento One-to-Many: uma missão pode ter vários ninjas
-    @OneToMany(mappedBy = "missao", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToMany(mappedBy = "missoes", cascade = CascadeType.ALL, orphanRemoval = true)
     @JsonIgnore
     private List<NinjaModel> ninjas;
 }
