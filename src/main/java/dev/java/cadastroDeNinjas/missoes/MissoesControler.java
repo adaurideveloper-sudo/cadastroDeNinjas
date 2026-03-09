@@ -33,8 +33,9 @@ public class MissoesControler {
 
     // Listar Missoes
     @GetMapping("/listar")
-    public List<MissoesModel> listarMissoes(MissoesModel missoes) {
-        return missoesService.listarMissoes();
+    public ResponseEntity<List<MissoesDTO>> listarMissoes() {
+        List<MissoesDTO> missoes = missoesService.listarMissoes();
+        return ResponseEntity.ok(missoes);
     }
 
     //Listar Missoes por Id
