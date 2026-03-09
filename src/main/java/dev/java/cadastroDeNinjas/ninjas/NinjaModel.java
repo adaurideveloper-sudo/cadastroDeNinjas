@@ -24,7 +24,7 @@ public class NinjaModel {
     private String email;
 
     @Column(name="img_url")
-    private String img_url;
+    private String imgUrl;
 
     @Column(name="idade")
     private int idade;
@@ -35,9 +35,8 @@ public class NinjaModel {
 
 
     // Relacionamento Many-to-One: muitos ninjas podem ter uma missão
-    @ManyToOne
+    @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "missoes_id") // chave estrangeira
     private MissoesModel missoes;
-
 
 }

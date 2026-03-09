@@ -38,7 +38,7 @@ public class NinjaController {
 
     }
 
-    // Procurar Ninja por ID (CREATE)
+    // Procurar Ninja por ID
     @GetMapping("/listar")
     public ResponseEntity<List<NinjaDTO>> listarNinjas() {
         List<NinjaDTO> ninjas = ninjaService.listarNinjas();
