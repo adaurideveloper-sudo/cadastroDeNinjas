@@ -1,6 +1,4 @@
 package dev.java.cadastroDeNinjas.ninjas;
-
-import dev.java.cadastroDeNinjas.missoes.MissoesModel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -15,7 +13,8 @@ public class NinjaDTO {
     private String email;
     private String imgUrl;
     private int idade;
-    private MissoesModel missao;
+    //private MissoesModel missao;
     private String rank;
+    private Long missaoId;
 
 }

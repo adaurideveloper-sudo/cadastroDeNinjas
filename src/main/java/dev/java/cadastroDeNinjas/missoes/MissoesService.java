@@ -9,30 +9,33 @@ import java.util.stream.Collectors;
 public class MissoesService {
 
     private final MissoesMapper missoesMapper;
-    private  MissoesRepository missoesRepository;
+    private  final MissoesRepository missoesRepository;
 
-    public MissoesService(MissoesRepository missoesRepository, MissoesMapper missoesMapper) {
-        this.missoesRepository = missoesRepository;
+    public MissoesService(MissoesMapper missoesMapper, MissoesRepository missoesRepository) {
         this.missoesMapper = missoesMapper;
+        this.missoesRepository = missoesRepository;
     }
 
-    // Adicionar missoes
-    public MissoesModel criarMissoes(MissoesModel missoes) {
-        return missoesRepository.save(missoes);
+    // Criar missoes
+    public MissoesDTO criarMissoes(MissoesDTO missoesDTO) {
+        MissoesModel missoes = missoesMapper.map(missoesDTO);
+        missoes = missoesRepository.save(missoes);
+        return missoesMapper.map(missoes);
     }
 
     // listar todas minha missoes
     public List<MissoesDTO> listarMissoes() {
         List<MissoesModel> missoes =missoesRepository.findAll();
+        System.out.println("Quantidade de missões no banco: " + missoes.size());
         return missoes.stream()
                 .map(missoesMapper::map)
                 .collect(Collectors.toList());
     }
 
     // listar missoes por id
-    public MissoesModel listarMissoesPorId(Long id) {
+    public MissoesDTO listarMissoesPorId(Long id) {
         Optional<MissoesModel> missoesPorId = missoesRepository.findById(id);
-        return missoesPorId.orElse(null);
+        return missoesPorId.map(missoesMapper::map).orElse(null);
     }
 
     //Deletar por id
@@ -41,16 +44,14 @@ public class MissoesService {
     }
 
 
-    public MissoesModel atualizarMissao(Long id, MissoesModel missao) {
+    public MissoesDTO atualizarMissao(Long id, MissoesDTO missoesDTO) {
         Optional<MissoesModel> missaoExistente = missoesRepository.findById(id);
 
         if (missaoExistente.isPresent()) {
-            MissoesModel missaoNoBanco = missaoExistente.get();
-
-            missaoNoBanco.setNome(missao.getNome()); // mudei aqui
-            missaoNoBanco.setDificuldade(missao.getDificuldade()); // e aqui
-
-            return missoesRepository.save(missaoNoBanco);
+            MissoesModel missaoAtualizada = missoesMapper.map(missoesDTO);
+            missaoAtualizada.setId(id);
+            MissoesModel missaoSalva = missoesRepository.save(missaoAtualizada);
+            return missoesMapper.map(missaoSalva);
         }
         return null;
     }
