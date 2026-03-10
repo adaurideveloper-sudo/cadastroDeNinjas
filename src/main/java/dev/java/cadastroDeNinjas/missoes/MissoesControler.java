@@ -27,7 +27,7 @@ public class MissoesControler {
 
     // Adicionar Missoes
     @PostMapping("/criar")
-    public MissoesModel criarMissoes(@RequestBody MissoesModel missoes) {
+    public MissoesDTO criarMissoes(@RequestBody MissoesDTO missoes) {
         return missoesService.criarMissoes(missoes);
     }
 
@@ -40,14 +40,14 @@ public class MissoesControler {
 
     //Listar Missoes por Id
     @GetMapping("/listar/{id}")
-    public MissoesModel listarMissaoesPorId(@PathVariable Long id){
+    public MissoesDTO listarMissaoesPorId(@PathVariable Long id){
         return missoesService.listarMissoesPorId(id);
     }
 
     // Altera os dados da missao
     @PutMapping("/atualizar/{id}")
-    public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody MissoesModel missao) {
-        MissoesModel atualizada = missoesService.atualizarMissao(id, missao);
+    public ResponseEntity<?> atualizar(@PathVariable Long id, @RequestBody MissoesDTO missaoAtualizada) {
+        MissoesDTO atualizada = missoesService.atualizarMissao(id, missaoAtualizada);
 
         if (atualizada != null) {
             return ResponseEntity.ok(atualizada); // Retorna 200 OK com o objeto

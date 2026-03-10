@@ -1,5 +1,4 @@
 package dev.java.cadastroDeNinjas.ninjas;
-
 import dev.java.cadastroDeNinjas.missoes.MissoesModel;
 import jakarta.persistence.*;
 import lombok.*;
