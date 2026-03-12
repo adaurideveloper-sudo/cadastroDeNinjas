@@ -26,7 +26,6 @@ public class MissoesService {
     // listar todas minha missoes
     public List<MissoesDTO> listarMissoes() {
         List<MissoesModel> missoes =missoesRepository.findAll();
-        System.out.println("Quantidade de missões no banco: " + missoes.size());
         return missoes.stream()
                 .map(missoesMapper::map)
                 .collect(Collectors.toList());
@@ -35,7 +34,8 @@ public class MissoesService {
     // listar missoes por id
     public MissoesDTO listarMissoesPorId(Long id) {
         Optional<MissoesModel> missoesPorId = missoesRepository.findById(id);
-        return missoesPorId.map(missoesMapper::map).orElse(null);
+        return missoesPorId.map(missoesMapper::map)
+                .orElse(null);
     }
 
     //Deletar por id

@@ -16,19 +16,21 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/missoes")
-public class MissoesControler {
+public class MissoesController {
 
     private MissoesService missoesService;
 
-    public MissoesControler(MissoesService missoesService) {
+    public MissoesController(MissoesService missoesService) {
         this.missoesService = missoesService;
     }
 
 
     // Adicionar Missoes
     @PostMapping("/criar")
-    public MissoesDTO criarMissoes(@RequestBody MissoesDTO missoes) {
-        return missoesService.criarMissoes(missoes);
+    public ResponseEntity<MissoesDTO> criarMissoes(@RequestBody MissoesDTO missoes) {
+        MissoesDTO novaMissao = missoesService.criarMissoes(missoes);
+        return ResponseEntity.status(HttpStatus.CREATED)
+                .body(novaMissao);
     }
 
     // Listar Missoes
@@ -40,8 +42,12 @@ public class MissoesControler {
 
     //Listar Missoes por Id
     @GetMapping("/listar/{id}")
-    public MissoesDTO listarMissaoesPorId(@PathVariable Long id){
-        return missoesService.listarMissoesPorId(id);
+    public ResponseEntity<MissoesDTO> listarMissaoesPorId(@PathVariable Long id){
+        MissoesDTO missao = missoesService.listarMissoesPorId(id);
+        if ( missao != null) {
+            return ResponseEntity.ok(missao);
+        }
+        return ResponseEntity.noContent().build();
     }
 
     // Altera os dados da missao
@@ -61,6 +67,5 @@ public class MissoesControler {
     public void deletarMissoesPorId(@PathVariable Long id){
         missoesService.deletarMissoesPorId(id);
     }
-
 
 }
